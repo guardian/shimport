@@ -5,7 +5,7 @@ import { define, load } from "./load";
 // assume this, so don't try and initialise to a different global variable as it
 // won't work.
 const initialise = () => {
-  self.__shimport__ = load;
+  self.__shimport__ = { transform, define, load };
 };
 
 export { transform, define, load, initialise };
