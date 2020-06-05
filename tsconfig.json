@@ -1,17 +1,26 @@
 {
-    "compilerOptions": {
-        "noImplicitAny": true,
-        "diagnostics": true,
-        "noImplicitThis": true,
-        "noEmitOnError": true,
-        "lib": ["es5", "es6", "dom"]
-    },
-    "target": "ES5",
-    "module": "ES6",
-    "include": [
-        "src"
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "diagnostics": true,
+    "noImplicitThis": true,
+    "noEmitOnError": true,
+    "lib": [
+      "es5",
+      "es6",
+      "dom"
     ],
-    "exclude": [
-        "node_modules"
-    ]
+    "esModuleInterop": true
+  },
+  "target": "ES5",
+  "module": "ES6",
+  "include": [
+    "src/**/*"
+  ],
+  "files": [
+    "src/global.d.ts",
+    "src/index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

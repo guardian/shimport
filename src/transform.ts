@@ -15,11 +15,13 @@ interface Range {
 	[key: string]: any;
 }
 
-function get_alias(specifiers: Specifier[], name: string) {
+function get_alias(specifiers: Specifier[], name: string): string {
 	let i = specifiers.length;
 	while (i--) {
 		if (specifiers[i].name === name) return specifiers[i].as;
 	}
+
+	return '';
 }
 
 function importDecl(str: string, start: number, end: number, specifiers: Specifier[], source: string) {
@@ -37,6 +39,7 @@ function importDecl(str: string, start: number, end: number, specifiers: Specifi
 				.sort((a, b) => {
 					if (a.name === 'default') return 1;
 					if (b.name === 'default') return -1;
+					else return 0;
 				})
 				.map(s => {
 					if (s.name === '*') return null;
@@ -255,7 +258,7 @@ function getExportDeclaration(str: string, i: number) {
 			declarationStart,
 			specifiersEnd,
 			i,
-			source
+			source || ''
 		);
 	}
 
@@ -398,8 +401,8 @@ function find(str: string): [Range[], Range[], Range[]] {
 
 					regexEnabled = token
 						? keywords.test(token) ||
-						  punctuators.test(token) ||
-						  (ambiguous.test(token) && !tokenClosesExpression())
+						punctuators.test(token) ||
+						(ambiguous.test(token) && !tokenClosesExpression())
 						: false;
 				} else {
 					regexEnabled = true;
