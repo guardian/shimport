@@ -29,14 +29,14 @@ person:
 
 ```
 interface Window {
-    __import__: (url: string) => Promise<any>;
-    __shimport__: any;
+    __shimport__: (url: string) => Promise<any>;
 }
 ```
 
 **Very thankful to @Rich-Harris for the work.**
 
-A 2kb shim for `import` and `export`. Allows you to use JavaScript modules in **all** browsers, including dynamic `import()`.
+A 3kb (gzipped) shim for `import` and `export`. Allows you to use JavaScript
+modules in **all** browsers, including dynamic `import()`.
 
 ## License
 
