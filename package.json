@@ -29,6 +29,7 @@
   },
   "scripts": {
     "dev": "rollup -cw",
+    "prebuild": "tsc --emitDeclarationOnly --declaration --declarationDir dist",
     "build": "rollup -c",
     "test": "mocha --opts mocha.opts",
     "prepublishOnly": "npm test && npm run build",
